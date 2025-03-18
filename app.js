@@ -5,7 +5,7 @@ function alertaDeListaVazia() {
 }
 
 function esconderAlertaDeListaVazia() {
-    document.getElementById('esconderAlertaDeListaVazia').setAttribute('hidden',true);
+    document.getElementById('esconderAlertaDeListaVazia').setAttribute('hidden');
 }
 
 function adicionarAmigo() {
@@ -15,51 +15,21 @@ function adicionarAmigo() {
   } else {
     listaDeAmigos.push(novoAmigo);
     document.getElementById('amigo').value = '';
+    mostrarListaDeAmigos();
     console.log(listaDeAmigos);
   }
 
 }
 
 function mostrarListaDeAmigos() {
-    let listaAmigos = document.getElementById('listaAmigos');
 
-    listaAmigos.innerHTML = '';
-   
-    for (let i = 0; i < listaDeAmigos.length; i++) {
-        let li = document.createElement('li');
-        li.textContent = listaDeAmigos[i];
-        li.appendChild(li);
+        let listaAmigos = document.getElementById('listaAmigos');
+        listaAmigos.innerHTML = '';
+
+            for (let i = 0; i < listaDeAmigos.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = listaDeAmigos[i];
+                listaAmigos.appendChild(li);
+            }
+
     }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function adicionarAmigo() {
-//     document.getElementById('amigo').innerHTML = listaDeAmigos.push();
-//     console.log(listaDeAmigos);
-
-// }
-
-// function gerarNomeAleatorio(){
-//     let amigo = parseInt(Math.random() * listaDeAmigos.length, 10);
-//     if (amigo.includes)
-// }
