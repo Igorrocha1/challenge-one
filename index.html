@@ -19,7 +19,8 @@
         
         <section class="input-section">
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
-            <h3 id="alertaDeListaVazia" hidden>Por favor, insira um nome.</h3>
+            <p id="alertaDeListaVazia" class="section-alert" hidden>Por favor, insira um nome.</p>
+            <p id="fimDaLista" class="section-alert" hidden> Todos os nomes já foram sorteados!</p>
             <div class="input-wrapper">
                 <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
                 <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
@@ -29,8 +30,10 @@
             </ul>
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
+
             <div class="button-container">
-                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
+                    <canvas id="confetti"></canvas>
+                    <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
                     <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
                     Sortear amigo
                 </button>
@@ -38,6 +41,7 @@
         </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <script src="app.js" defer></script>
 </body>
 </html>

@@ -1,19 +1,20 @@
 let listaDeAmigos = [];
 
-function alertaDeListaVazia() {
-  document.getElementById("alertaDeListaVazia").removeAttribute("hidden");
-}
+const button = document.querySelector('.button-draw');
+const canvas = document.querySelector('#confetti');
 
-function esconderAlertaDeListaVazia() {
-  document.getElementById("esconderAlertaDeListaVazia").setAttribute("hidden");
-}
+const jsConfetti = new JSConfetti();
+
+button.addEventListener('click', () => {
+  jsConfetti.addConfetti();
+});
 
 function adicionarAmigo() {
-  let novoAmigo = document.getElementById("amigo").value;
-  if (novoAmigo === "") {
-    alertaDeListaVazia();
-  } else {
-    listaDeAmigos.push(novoAmigo);
+  let nomeDoNovoAmigo = document.getElementById("amigo").value;
+  if (nomeDoNovoAmigo === "") {
+    document.getElementById("alertaDeListaVazia").removeAttribute("hidden"); //Se a lista estiver vazia, exibe o alerta
+  } else {    
+    listaDeAmigos.push(nomeDoNovoAmigo);
     document.getElementById("amigo").value = "";
     mostrarListaDeAmigos();
     console.log(listaDeAmigos);
@@ -32,8 +33,8 @@ function mostrarListaDeAmigos() {
 }
 
 function sortearAmigo() {
-  if (listaDeAmigos.length < 2) {
-    alert("a lista esta vazia");
+  if (listaDeAmigos.length < 1) {
+    document.getElementById("fimDaLista").removeAttribute("hidden");
   } else {
     let numeroDaListaSorteado = Math.floor(
       Math.random() * listaDeAmigos.length
